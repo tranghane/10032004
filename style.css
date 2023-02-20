@@ -17,3 +17,6 @@ body {
     display: grid;
     place-items: center;
   }
+  #text:has(.fancy:hover) .word:not(.fancy){
+    opacity: 0.2;
+  }
