@@ -59,23 +59,23 @@ a {
 }
 
 .fancy:hover>.letter:nth-child(4) {
-    transform: translate(0%, 8%) rotate(-8deg);
+    transform: translate(5%, 8%) rotate(-8deg);
 }
 
 .fancy:hover>.letter:nth-child(5) {
-    transform: translate(0%, -20%) rotate(2deg);
+    transform: translate(-5%, -20%) rotate(2deg);
 }
 
 .fancy:hover>.letter:nth-child(6) {
-    transform: translate(0%, 20%) rotate(-3deg);
+    transform: translate(5%, 20%) rotate(-3deg);
 }
 
 .fancy:hover>.letter:nth-child(7) {
-    transform: translate(0%, -40%) rotate(-5deg);
+    transform: translate(5%, -40%) rotate(-5deg);
 }
 
 .fancy:hover>.letter:nth-child(8) {
-    transform: translate(0%, 15%) rotate(10deg);
+    transform: translate(-5%, 15%) rotate(10deg);
 }
 
 .fancy:hover>.letter:nth-child(9) {
