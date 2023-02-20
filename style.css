@@ -22,4 +22,9 @@ body {
   }
   a{
     text-decoration: none;
+    color: white;
+    font-size: 8vw;
+    font-family: "Rubik", sans-serif;
+    margin: 0rem;
+    text-transform: uppercase;
   }
