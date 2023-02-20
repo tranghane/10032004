@@ -1,6 +1,6 @@
 p {
-    color: white;
-    font-size: 8vw;
+    color: #E96479;
+    font-size: 6vw;
     font-family: "Rubik", sans-serif;
     margin: 0rem;
     text-transform: uppercase;
@@ -13,7 +13,7 @@ p {
 
 body {
     height: 100vh;
-    background-color: black;
+    background-color: #faebd7;
     margin: 0rem;
     overflow: hidden;
     display: grid;
@@ -26,8 +26,8 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
-    font-size: 8vw;
+    color: #E96479;
+    font-size: 6vw;
     font-family: "Rubik", sans-serif;
     margin: 0rem;
     text-transform: uppercase;
