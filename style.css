@@ -21,7 +21,7 @@ body {
     user-select: none;
 }
 
-#text:has(.fancy:hover) .word:not(.fancy) {
+#text:has(.fancy:hover) .word:not(.fancy){
     opacity: 0.2;
 }
 
