@@ -36,6 +36,9 @@ a {
 .fancy>.letter {
     display: inline-block;
 }
+.fancy> .hidden{
+    color: #faebd7;
+}
 
 /* Transformation */
 .fancy > .letter {
