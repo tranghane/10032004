@@ -101,7 +101,7 @@ a {
 #text {
     --g: 50px;     /* the gap */
     --b: 12px;    /* border thickness*/
-    --c: #669706; /* the color */
+    --c: #95BDFF; /* the color */
     
     
     padding: calc(var(--g) + var(--b));
