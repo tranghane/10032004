@@ -7,9 +7,6 @@ A website with a suprise (almost birthday) theme: https://tranghane.github.io/10
   <img src="birthday/screanshot/1.png" />
 </h2>
 <h2 align="center">
-  <img src="birthday/screanshot/2.png" />
-</h2>
-<h2 align="center">
   <img src="birthday/screanshot/3.png" />
 </h2>
 <h2 align="center">
