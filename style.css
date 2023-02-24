@@ -48,6 +48,7 @@ a {
   
   .fancy:hover > .letter {
     transition-duration: 800ms;
+    color: #4D455D;
   }
 
 .fancy:hover>.letter:nth-child(1) {
