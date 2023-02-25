@@ -41,6 +41,7 @@ a {
     color: #faebd7;
 }
 
+
 /* Transformation */
 .fancy > .letter {
     transition: transform 50ms ease;
@@ -121,4 +122,23 @@ a {
   }
   #text:hover {
     --_p: 75%;
+  }
+
+  svg{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 25%;
+  }
+  .loader-wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #faebd7;
+    display: flex;
+    justify-content: center;
   }
