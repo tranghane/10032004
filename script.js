@@ -32,3 +32,4 @@ const enhance = id => {/*take in an element id*/
         }
     })
 }
+enhance("message")
