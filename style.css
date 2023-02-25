@@ -22,7 +22,7 @@ body {
 }
 
 #text:has(.fancy:hover) .word:not(.fancy){
-    opacity: 0.2;
+    color: #1F8A70;
 }
 
 a {
@@ -40,6 +40,9 @@ a {
 .fancy> .hidden{
     color: #faebd7;
 }
+.fancy:hover> .hidden{
+    color: #1F8A70;
+}
 
 
 /* Transformation */
@@ -49,7 +52,7 @@ a {
   
   .fancy:hover > .letter {
     transition-duration: 800ms;
-    color: #4D455D;
+    color: #faebd7;
   }
 
 .fancy:hover>.letter:nth-child(1) {
