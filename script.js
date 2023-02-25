@@ -32,24 +32,3 @@ const enhance = id => {/*take in an element id*/
         }
     })
 }
-enhance("message")
-function fadeOut(element) {
-    var opacity = 1;
-    var timer = setInterval(function() {
-      if (opacity <= 0.001) {
-        clearInterval(timer);
-        element.style.display = 'none';
-      }
-      element.style.opacity = opacity;
-      element.style.filter = 'alpha(opacity=' + opacity * 100 + ")";
-      opacity -= opacity * 0.2;
-    }, 25);
-  }
-  
-  window.addEventListener("load", function () {
-    setTimeout(function(){
-        var loader = document.querySelector(".loader-wrapper");
-        fadeOut(loader);
-    }, 500);
-  });
-  
