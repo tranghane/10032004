@@ -39,7 +39,6 @@ a {
 }
 .fancy> .hidden{
     color: #faebd7;
-    transition-duration: 0.5s;
 }
 .fancy:hover> .hidden{
     color: #1F8A70;
