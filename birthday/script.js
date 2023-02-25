@@ -708,3 +708,24 @@ function reveal() {
     ifrm.style.border = 'none';
     document.querySelector('#video').appendChild(ifrm);
 }
+
+function fadeOut(element) {
+    var opacity = 1;
+    var timer = setInterval(function() {
+      if (opacity <= 0.001) {
+        clearInterval(timer);
+        element.style.display = 'none';
+      }
+      element.style.opacity = opacity;
+      element.style.filter = 'alpha(opacity=' + opacity * 100 + ")";
+      opacity -= opacity * 0.4;
+    }, 25);
+  }
+  
+  window.addEventListener("load", function () {
+    setTimeout(function(){
+        var loader = document.querySelector(".loader-wrapper");
+        fadeOut(loader);
+    }, 500);
+  });
+  
