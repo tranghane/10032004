@@ -362,25 +362,33 @@ function anim() {
 
     window.requestAnimationFrame(anim);
 
-    ctx.fillStyle = '#111';
-    ctx.fillRect(0, 0, w, h);
+    // Load the image
+    var img = new Image();
+    img.src = "background.jpeg";
+    img.onload = function() {
+        // Draw the image onto the canvas as a background
+        var pattern = ctx.createPattern(img, "repeat");
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, w, h);
 
-    ctx.translate(hw, hh);
-
-    var done = true;
-    for (var l = 0; l < letters.length; ++l) {
-
-        letters[l].step();
-        if (letters[l].phase !== 'done')
-            done = false;
-    }
-
-    ctx.translate(-hw, -hh);
-
-    if (done)
-        for (var l = 0; l < letters.length; ++l)
-            letters[l].reset();
+        // Translate and animate letters as before
+        ctx.translate(hw, hh);
+        var done = true;
+        for (var l = 0; l < letters.length; ++l) {
+            letters[l].step();
+            if (letters[l].phase !== 'done')
+                done = false;
+        }
+        ctx.translate(-hw, -hh);
+        if (done) {
+            for (var l = 0; l < letters.length; ++l)
+                letters[l].reset();
+        }
+    };
 }
+// Preload the image
+var img = new Image();
+img.src = "background.jpeg";
 
 for (var i = 0; i < opts.strings.length; ++i) {
     for (var j = 0; j < opts.strings[i].length; ++j) {
@@ -389,32 +397,22 @@ for (var i = 0; i < opts.strings.length; ++i) {
             i * opts.lineHeight + opts.lineHeight / 2 - opts.strings.length * opts.lineHeight / 2));
     }
 }
-
 setTimeout(() => {
     anim();
+    ctx.font = opts.charSize + 'px "Righteous", cursive';
+}, 3100);
 
-    ctx.font = opts.charSize + 'px Verdana';
-}, 2000);
+//2254
 
-// window.addEventListener('resize', function () {
-
-//     w = c.width = window.innerWidth;
-//     h = c.height = window.innerHeight;
-
-//     hw = w / 2;
-//     hh = h / 2;
-
-//     ctx.font = opts.charSize + 'px Verdana';
-// })
-
-window.requestAnimFrame = (function () {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
-})();
+window.requestAnimFrame = (function() {
+    return window.requestAnimationFrame || 
+           window.webkitRequestAnimationFrame || 
+           window.mozRequestAnimationFrame || 
+           function(callback) {
+             window.requestAnimationFrame(callback);
+           };
+  })();
+  
 
 // now we will setup our basic variables for the demo
 var canvas = document.getElementById('canvas'),
@@ -512,9 +510,11 @@ Firework.prototype.update = function (index) {
 
     // if the distance traveled, including velocities, is greater than the initial distance to the target, then the target has been reached
     if (this.distanceTraveled >= this.distanceToTarget) {
-        createParticles(this.tx, this.ty);
+          createParticles(this.tx, this.ty);
         // remove the firework, use the index passed into the update function to determine which to remove
+
         fireworks.splice(index, 1);
+        
     } else {
         // target not reached, keep traveling
         this.x += vx;
@@ -658,39 +658,44 @@ function loop() {
 }
 
 window.onload = function () {
-    var merrywrap = document.getElementById("merrywrap");
-    var box = merrywrap.getElementsByClassName("giftbox")[0];
-    var step = 1;
-    var stepMinutes = [500, 500, 200, 200];
-    function init() {
-        box.addEventListener("click", openBox, false);
-    }
-    function stepClass(step) {
-        merrywrap.className = 'merrywrap';
-        merrywrap.className = 'merrywrap step-' + step;
-    }
-    function openBox() {
-        if (step === 1) {
-            box.removeEventListener("click", openBox, false);
+    setTimeout(function() {
+        var merrywrap = document.getElementById("merrywrap");
+        var box = merrywrap.getElementsByClassName("giftbox")[0];
+        var step = 1;
+        //500 500 200 200
+        var stepMinutes = [750, 750, 450, 450];
+        function init() {
+            box.addEventListener("click", openBox, false);
         }
-        stepClass(step);
-        if (step === 3) {
+        function stepClass(step) {
+            merrywrap.className = 'merrywrap';
+            merrywrap.className = 'merrywrap step-' + step;
         }
-        if (step === 4) {
-            reveal();
-            return;
+        function openBox() {
+            if (step === 1) {
+                box.removeEventListener("click", openBox, false);
+            }
+            stepClass(step);
+            if (step === 3) {
+            }
+            if (step === 4) {
+                reveal()
+                return;
+            }
+            setTimeout(openBox, stepMinutes[step - 1]);
+            step++;
         }
-        setTimeout(openBox, stepMinutes[step - 1]);
-        step++;
-    }
 
-    init();
-
+        init();
+    }, 0);
 }
+
+
 
 function reveal() {
     document.querySelector('.merrywrap').style.backgroundColor = 'transparent';
 
+    
     loop();
 
     var w, h;
@@ -708,7 +713,6 @@ function reveal() {
     ifrm.style.border = 'none';
     document.querySelector('#video').appendChild(ifrm);
 }
-
 function fadeOut(element) {
     var opacity = 1;
     var timer = setInterval(function() {
