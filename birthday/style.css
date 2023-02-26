@@ -114,6 +114,7 @@ div#sea {
     transition: background-color 0.5s ease;
     z-index: 1000;
     height: 100%;
+    
 }
 
 .giftbox {
@@ -124,6 +125,10 @@ div#sea {
     top: 40%;
     z-index: 10;
     margin-left: -150px;
+    cursor: default;
+}
+.giftbox:active {
+    cursor: pointer;
 }
 
 .giftbox>div {
@@ -149,7 +154,6 @@ div#sea {
     text-align: center;
     transform: rotate(-20deg);
     transform-origin: 0 0;
-
 }
 
 .giftbox .cover {
