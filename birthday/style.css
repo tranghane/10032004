@@ -11,10 +11,40 @@ body,
 body {
     background: #e74;
     overflow: hidden;
-    background-image: linear-gradient(to bottom, #190e14, #0d0d4b 30%, #c76075 80%, #e9b64b 95%);
-    background-image: radial-gradient(circle at center bottom, #e9b64b, #c76075 15%, #0d0d4b 75%, #190e14 90%);
+    background-image: var(--gradient);
+
+    background-size: 600%;
+    animation: bg-animation 5s infinite alternate;
     z-index: 99;
 }
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+:root {
+    --gradient: linear-gradient(45deg,
+            #008F7A,
+            #008E9B,
+            #0089BA,
+            #0081CF,
+            #2C73D2,
+            #845ec2,
+            #d65db1,
+            #ff6f91,
+            #ffc75f,
+            #f9f871);
+}
+
+
+
+
 
 div#beach,
 canvas#canvas {
@@ -562,15 +592,17 @@ canvas#c {
         opacity: 0;
     }
 }
-svg{
+
+svg {
     width: 100px;
     height: 100px;
     position: relative;
     display: flex;
     justify-content: center;
     margin-top: 25%;
-  }
-  .loader-wrapper{
+}
+
+.loader-wrapper {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -580,4 +612,4 @@ svg{
     display: flex;
     justify-content: center;
     z-index: 9999999999;
-  }
+}

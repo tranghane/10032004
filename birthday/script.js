@@ -366,11 +366,12 @@ function anim() {
     var img = new Image();
     img.src = "background.jpeg";
     img.onload = function() {
+        
         // Draw the image onto the canvas as a background
         var pattern = ctx.createPattern(img, "repeat");
         ctx.fillStyle = pattern;
         ctx.fillRect(0, 0, w, h);
-
+        
         // Translate and animate letters as before
         ctx.translate(hw, hh);
         var done = true;
@@ -386,9 +387,6 @@ function anim() {
         }
     };
 }
-// Preload the image
-var img = new Image();
-img.src = "background.jpeg";
 
 for (var i = 0; i < opts.strings.length; ++i) {
     for (var j = 0; j < opts.strings[i].length; ++j) {
@@ -397,6 +395,8 @@ for (var i = 0; i < opts.strings.length; ++i) {
             i * opts.lineHeight + opts.lineHeight / 2 - opts.strings.length * opts.lineHeight / 2));
     }
 }
+
+
 setTimeout(() => {
     anim();
     ctx.font = opts.charSize + 'px "Righteous", cursive';
