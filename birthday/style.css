@@ -13,8 +13,8 @@ body {
     overflow: hidden;
     background-image: var(--gradient);
 
-    background-size: 600%;
-    animation: bg-animation 5s infinite alternate;
+    background-size: 700%;
+    animation: bg-animation 10s infinite alternate;
     z-index: 99;
 }
 
@@ -39,7 +39,12 @@ body {
             #d65db1,
             #ff6f91,
             #ffc75f,
-            #f9f871);
+            #f9f871,
+            #9BDE7E,
+            #4BBC8E,
+            #039590,
+            #1C6E7D,
+            #2F4858);
 }
 
 
