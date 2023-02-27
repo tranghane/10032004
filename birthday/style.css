@@ -13,7 +13,7 @@ body {
     overflow: hidden;
     background-image: var(--gradient);
 
-    background-size: 700%;
+    background-size: 1400%;
     animation: bg-animation 10s infinite alternate;
     z-index: 99;
 }
@@ -22,16 +22,13 @@ body {
     0% {
         background-position: left;
     }
-
-    100% {
+    100%{
         background-position: right;
     }
 }
 
 :root {
     --gradient: linear-gradient(45deg,
-            #008F7A,
-            #008E9B,
             #0089BA,
             #0081CF,
             #2C73D2,
@@ -45,8 +42,7 @@ body {
             #9BDE7E,
             #4BBC8E,
             #039590,
-            #1C6E7D,
-            #2F4858);
+            #1C6E7D);
 }
 
 
