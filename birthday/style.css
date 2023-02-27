@@ -38,6 +38,9 @@ body {
             #FF8585,
             #FF9F76,
             #ffc75f,
+            #FED364,
+            #FCE068,
+            #FBEC6D,
             #f9f871,
             #9BDE7E,
             #4BBC8E,
@@ -105,12 +108,26 @@ div#sea {
     left: 0px;
     bottom: 0px;
     top: 0px;
-    background-color: antiquewhite;
-    transition: background-color 0.5s ease;
+    background-color: transparent;
+    background-image: var(--merryGrad);
+    transition: background-image 1s ease;
     z-index: 1000;
     height: 100%;
     
 }
+:root {
+    --merryGrad: linear-gradient(45deg,
+    #FAEBD7,
+    #FFDCBB,
+    #FFCAAA,
+    #FFB3A6);
+}
+
+
+
+
+
+
 
 .giftbox {
     position: absolute;

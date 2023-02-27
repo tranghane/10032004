@@ -64,8 +64,8 @@ function Letter(char, x, y) {
     this.x = x;
     this.y = y;
 
-    this.dx = -ctx.measureText(char).width / 2;
-    this.dy = +opts.charSize / 2;
+    this.dx = -ctx.measureText(char).width / 1.5;
+    this.dy = +opts.charSize / 1.5;
 
     this.fireworkDy = this.y - hh;
 
@@ -78,6 +78,8 @@ function Letter(char, x, y) {
 
     this.reset();
 }
+
+
 Letter.prototype.reset = function () {
 
     this.phase = 'firework';
@@ -358,6 +360,7 @@ function generateBalloonPath(x, y, size) {
         x, y);
 }
 
+/*
 function anim() {
 
     window.requestAnimationFrame(anim);
@@ -387,6 +390,7 @@ function anim() {
         }
     };
 }
+*/
 
 for (var i = 0; i < opts.strings.length; ++i) {
     for (var j = 0; j < opts.strings[i].length; ++j) {
@@ -395,12 +399,44 @@ for (var i = 0; i < opts.strings.length; ++i) {
             i * opts.lineHeight + opts.lineHeight / 2 - opts.strings.length * opts.lineHeight / 2));
     }
 }
+function loadPattern() {
+    var img = new Image();
+    img.src = "background.jpeg";
+    img.onload = function() {
+        var pattern = ctx.createPattern(img, "repeat");
+        ctx.fillStyle = pattern;
+        ctx.fillRect(0, 0, w, h);
+    }
+    window.requestAnimationFrame(loadPattern);
+}
+//draw the background repeatedly
+loadPattern();
 
+function drawLetters() {
+    ctx.translate(hw, hh);
+    var done = true;
+    for (var l = 0; l < letters.length; ++l) {
+        letters[l].step();
+        if (letters[l].phase !== 'done')
+            done = false;
+    }
+    ctx.translate(-hw, -hh);
+    if (done) {
+        for (var l = 0; l < letters.length; ++l)
+            letters[l].reset();
+    }
+    window.requestAnimationFrame(drawLetters);
+}
 
-setTimeout(() => {
-    anim();
-    ctx.font = opts.charSize + 'px "Righteous", cursive';
-}, 3100);
+// Listen for a click event on the document object
+document.addEventListener('click', function() {
+    // Delay the execution of the drawLetters function by 3 seconds
+    setTimeout(function() {
+      drawLetters();
+      ctx.font = opts.charSize + 'px "Righteous", cursive';
+    }, 3000);
+  });
+  
 
 //2254
 
@@ -693,8 +729,9 @@ window.onload = function () {
 
 
 function reveal() {
-    document.querySelector('.merrywrap').style.backgroundColor = 'transparent';
-
+    var merrywrap = document.querySelector('.merrywrap');
+    merrywrap.style.opacity = '0';
+    merrywrap.style.transition = 'opacity 0.5s ease-out';
     
     loop();
 
@@ -713,6 +750,7 @@ function reveal() {
     ifrm.style.border = 'none';
     document.querySelector('#video').appendChild(ifrm);
 }
+
 function fadeOut(element) {
     var opacity = 1;
     var timer = setInterval(function() {
