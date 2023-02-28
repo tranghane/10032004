@@ -65,7 +65,7 @@ function Letter(char, x, y) {
     this.y = y;
 
     this.dx = -ctx.measureText(char).width / 1.5;
-    this.dy = +opts.charSize / 1.5;
+    this.dy = +opts.charSize / 1.7;
 
     this.fireworkDy = this.y - hh;
 
@@ -429,13 +429,19 @@ function drawLetters() {
 }
 
 // Listen for a click event on the document object
-document.addEventListener('click', function() {
+function clickHandler() {
     // Delay the execution of the drawLetters function by 3 seconds
     setTimeout(function() {
       drawLetters();
       ctx.font = opts.charSize + 'px "Righteous", cursive';
     }, 3000);
-  });
+  
+    // Remove the event listener
+    document.removeEventListener('click', clickHandler);
+  }
+  
+  // Add the event listener
+  document.addEventListener('click', clickHandler);
   
 
 //2254
