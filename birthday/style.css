@@ -22,7 +22,8 @@ body {
     0% {
         background-position: left;
     }
-    100%{
+
+    100% {
         background-position: right;
     }
 }
@@ -119,23 +120,24 @@ div#sea {
 
     background-size: 500%;
     animation: bg-animation 100s infinite alternate;
-    
+
 }
+
 :root {
     --merryGrad: linear-gradient(-45deg,
-    #FAEBD7,
-    #FFDCBB,
-    #FFCAAA,
-    #FFB3A6,
-    #EE98A2,
-    #D781A2,
-    #B76EA4,
-    #8C60A6,
-    #5456A3);
+            #5456A3,
+            #8C60A6,
+            #B76EA4,
+            #D781A2,
+            #EE98A2,
+            #FFB3A6,
+            #FFCAAA,
+            #FFDCBB,
+            #FAEBD7);
 }
 
 
-:root{
+:root {
     --ribbon: #D9ACF5;
 }
 
@@ -152,6 +154,7 @@ div#sea {
     margin-left: -150px;
     cursor: default;
 }
+
 .giftbox:active {
     cursor: pointer;
 }
@@ -188,13 +191,14 @@ div#sea {
     background-size: 100%;
     animation: bg-animation 1s infinite alternate;
 }
+
 :root {
     --clickGrad: linear-gradient(45deg,
-    #39716A,
-    #2E6368,
-    #2D5662,
-    #2F4858,
-    #485A73);
+            #39716A,
+            #2E6368,
+            #2D5662,
+            #2F4858,
+            #485A73);
 }
 
 .giftbox .cover {

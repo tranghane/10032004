@@ -434,7 +434,7 @@ function clickHandler() {
     setTimeout(function() {
       drawLetters();
       ctx.font = opts.charSize + 'px "Righteous", cursive';
-    }, 3000);
+    }, 2000);
   
     // Remove the event listener
     document.removeEventListener('click', clickHandler);
