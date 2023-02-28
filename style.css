@@ -23,6 +23,7 @@ body {
 
 #text:has(.fancy:hover) .word:not(.fancy) {
     color: #1F8A70;
+    transition-duration: 0.5s;
 }
 
 a {
