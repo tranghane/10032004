@@ -212,8 +212,8 @@ canvas#canvas {
 
 .giftbox .box:after {
     width: 100%;
-    height: 30px;
-    background: rgba(0, 0, 0, 0.2);
+    height: 20px;
+    background: rgba(134, 93, 255, 0.2);
 }
 .step-1 .giftbox {
     animation: wobble 0.5s linear infinite forwards;
