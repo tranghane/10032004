@@ -65,7 +65,7 @@ function Letter(char, x, y) {
     this.y = y;
 
     this.dx = -ctx.measureText(char).width / 1.5;
-    this.dy = +opts.charSize / 1.7;
+    this.dy = +opts.charSize / 2;
 
     this.fireworkDy = this.y - hh;
 
