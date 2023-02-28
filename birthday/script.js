@@ -110,7 +110,7 @@ Letter.prototype.step = function () {
             var linearProportion = this.tick / this.reachTime,
                 armonicProportion = Math.sin(linearProportion * TauQuarter),
 
-                x = linearProportion * this.x,
+                x = linearProportion * (this.x),
                 y = hh + armonicProportion * this.fireworkDy;
 
             if (this.prevPoints.length > opts.fireworkPrevPoints)
@@ -162,7 +162,7 @@ Letter.prototype.step = function () {
                     x = x * cos - y * sin;
                     y = y * cos + x1 * sin;
 
-                    this.shards.push(new Shard(this.x, this.y, x, y, this.alphaColor));
+                    this.shards.push(new Shard(this.x , this.y, x, y, this.alphaColor));
                 }
             }
 
@@ -208,7 +208,7 @@ Letter.prototype.step = function () {
         } else {
 
             ctx.fillStyle = this.lightColor.replace('light', 70);
-            ctx.fillText(this.char, this.x + this.dx, this.y + this.dy);
+            ctx.fillText(this.char, this.x+ this.dx, this.y + this.dy);
         }
 
         for (var i = 0; i < this.shards.length; ++i) {
@@ -263,7 +263,7 @@ Letter.prototype.step = function () {
 
             ctx.fillStyle = this.alphaColor.replace('alp', proportion);
             ctx.beginPath();
-            generateBalloonPath(x, y, this.size * proportion);
+            generateBalloonPath(x , y, this.size * proportion);
             ctx.fill();
 
             ctx.beginPath();
@@ -281,7 +281,7 @@ Letter.prototype.step = function () {
 
         } else {
 
-            this.cx += this.vx;
+            this.cx += (this.vx);
             this.cy += this.vy += opts.upFlow;
 
             ctx.fillStyle = this.color;
@@ -290,8 +290,8 @@ Letter.prototype.step = function () {
             ctx.fill();
 
             ctx.beginPath();
-            ctx.moveTo(this.cx, this.cy);
-            ctx.lineTo(this.cx, this.cy + this.size);
+            ctx.moveTo(this.cx - 15, this.cy - 10);
+            ctx.lineTo(this.cx - 15, this.cy + this.size - 10);
             ctx.stroke();
 
             ctx.fillStyle = this.lightColor.replace('light', 70);
@@ -310,7 +310,7 @@ function Shard(x, y, vx, vy, color) {
     this.vx = vx * vel;
     this.vy = vy * vel;
 
-    this.x = x;
+    this.x = x ;
     this.y = y;
 
     this.prevPoints = [[x, y]];
@@ -322,7 +322,7 @@ function Shard(x, y, vx, vy, color) {
 }
 Shard.prototype.step = function () {
 
-    this.x += this.vx;
+    this.x += this.vx ;
     this.y += this.vy += opts.gravity;
 
     if (this.prevPoints.length > opts.fireworkShardPrevPoints)
@@ -349,16 +349,17 @@ Shard.prototype.step = function () {
     if (this.prevPoints[0][1] > hh)
         this.alive = false;
 }
-function generateBalloonPath(x, y, size) {
 
-    ctx.moveTo(x, y);
-    ctx.bezierCurveTo(x - size / 2, y - size / 2,
-        x - size / 4, y - size,
-        x, y - size);
-    ctx.bezierCurveTo(x + size / 4, y - size,
-        x + size / 2, y - size / 2,
-        x, y);
+function generateBalloonPath(x, y, size) {
+    ctx.moveTo(x -15, y - 10);
+    ctx.bezierCurveTo(x -15 - size / 2 , y - size / 2 - 10,
+        x - size / 4 -15, y - size - 10,
+        x -15, y - size) - 10;
+    ctx.bezierCurveTo(x + size / 4 , y - size - 10,
+        x -15+ size / 2 , y - size / 2 - 10,
+        x -15, y - 10);
 }
+
 
 /*
 function anim() {
@@ -581,7 +582,7 @@ Firework.prototype.draw = function () {
 
 // create particle
 function Particle(x, y) {
-    this.x = x;
+    this.x = x - 20;
     this.y = y;
     // track the past coordinates of each particle to create a trail effect, increase the coordinate count to create more prominent trails
     this.coordinates = [];
@@ -603,6 +604,7 @@ function Particle(x, y) {
     // set how fast the particle fades out
     this.decay = random(0.015, 0.03);
 }
+
 
 // update particle
 Particle.prototype.update = function (index) {
@@ -629,7 +631,7 @@ Particle.prototype.draw = function () {
     ctx.beginPath();
     // move to the last tracked coordinates in the set, then draw a line to the current x and y
     ctx.moveTo(this.coordinates[this.coordinates.length - 1][0], this.coordinates[this.coordinates.length - 1][1]);
-    ctx.lineTo(this.x, this.y);
+    ctx.lineTo(this.x, this.y );
     ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
     ctx.stroke();
 }
