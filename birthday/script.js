@@ -564,7 +564,6 @@ Firework.prototype.update = function (index) {
         this.y += vy;
     }
 }
-
 // draw firework
 Firework.prototype.draw = function () {
     ctx.beginPath();
@@ -750,15 +749,7 @@ function reveal() {
     else {
         w = 255; h = 155;
     }
-
-    var ifrm = document.createElement("iframe");
-    ifrm.setAttribute("src", "https://www.youtube.com/embed/KDxJlW6cxRk?controls=0&loop=1&autoplay=1");
-    //ifrm.style.width = `${w}px`;
-    //ifrm.style.height = `${h}px`;
-    ifrm.style.border = 'none';
-    document.querySelector('#video').appendChild(ifrm);
 }
-
 function fadeOut(element) {
     var opacity = 1;
     var timer = setInterval(function() {
