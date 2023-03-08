@@ -126,7 +126,7 @@ canvas#canvas {
     transform: rotate(-20deg);
     transform-origin: 0 0;
 
-    background: #324B4D;
+    background: var(--clickGrad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     overflow: hidden;
