@@ -30,8 +30,6 @@ body {
 
 :root {
     --gradient: linear-gradient(45deg,
-            #0089BA,
-            #0081CF,
             #2C73D2,
             #845ec2,
             #d65db1,
@@ -44,9 +42,7 @@ body {
             #FBEC6D,
             #f9f871,
             #9BDE7E,
-            #4BBC8E,
-            #039590,
-            #1C6E7D);
+            #4BBC8E);
 }
 
 
